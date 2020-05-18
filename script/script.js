@@ -153,8 +153,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     const playTest = () => {
-
         const finalAnswers = [];
+        const obj = {};
+
         let numberQuestion = 0;
 
         const renderAnswers = (index) => {
@@ -178,14 +179,22 @@ document.addEventListener('DOMContentLoaded', function () {
             formAnswers.innerHTML = '';
 
             switch (true) {
+                case (numberQuestion === 0):
+                    questionTitle.textContent = `${questions[indexQuestion].question}`;
+                    renderAnswers(indexQuestion);
+                    nextButton.classList.remove('d-none');
+                    sendButton.classList.add('d-none');
+                    prevButton.classList.add('d-none');
+                    console.log('numberQuestion в конце 2 кейса:' + numberQuestion);
+                    break;
                 case (numberQuestion >= 0 && numberQuestion <= questions.length - 1):
+                    console.log('numberQuestion в начале 1 кейса:' + numberQuestion);
                     questionTitle.textContent = `${questions[indexQuestion].question}`;
                     renderAnswers(indexQuestion);
                     nextButton.classList.remove('d-none');
                     prevButton.classList.remove('d-none');
                     sendButton.classList.add('d-none');
-                case (numberQuestion === 0):
-                    prevButton.classList.add('d-none');
+                    console.log('numberQuestion в конце 1 кейса:' + numberQuestion);
                     break;
                 case (numberQuestion === questions.length):
                     nextButton.classList.add('d-none');
@@ -200,6 +209,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     break;
                 case (numberQuestion === questions.length + 1):
                     formAnswers.textContent = 'Спасибо за пройденный тест!';
+
+
+
                     setTimeout(() => {
                         modalBlock.classList.remove('d-block');
                         burgerBtn.classList.remove('active');
@@ -210,11 +222,7 @@ document.addEventListener('DOMContentLoaded', function () {
         renderQuestions(numberQuestion);
 
         const checkAnswer = () => {
-            const obj = {};
             const inputs = [...formAnswers.elements].filter((input) => input.checked || input.id === 'numberPhone');
-
-            console.log(inputs);
-            
             
             inputs.forEach((input, index) => {
                 if (numberQuestion >= 0 && numberQuestion <= questions.length - 1) {
@@ -226,10 +234,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
 
-            finalAnswers.push(obj);
+            console.log(obj);
 
-            console.log(finalAnswers);
-            
+            // finalAnswers.push(obj);
         }
 
         nextButton.onclick =  () => {
