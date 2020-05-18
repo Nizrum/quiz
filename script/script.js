@@ -185,6 +185,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     formAnswers.textContent = 'Спасибо за пройденный тест!';
                     setTimeout(() => {
                         modalBlock.classList.remove('d-block');
+                        burgerBtn.classList.remove('active');
                     }, 2000);
                     break;
             }
