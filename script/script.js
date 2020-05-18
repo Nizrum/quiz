@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const nextButton = document.querySelector('#next');
     const prevButton = document.querySelector('#prev');
     const sendButton = document.querySelector('#send');
+    const modalTitle = document.querySelector('.modal-title');
 
     const questions = [
         {
@@ -194,12 +195,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     sendButton.classList.add('d-none');
                     break;
                 case (numberQuestion === questions.length):
+                    questionTitle.textContent = '';
+                    modalTitle.textContent = '';
                     nextButton.classList.add('d-none');
                     prevButton.classList.add('d-none');
                     sendButton.classList.remove('d-none');
                     formAnswers.innerHTML = `
                     <div class="form-group">
-                        <label for="numberPhone">Enter your number</label>
+                        <label for="numberPhone">Введите свой номер телефона</label>
                         <input type="phone" class="form-control" id="numberPhone">
                     </div>
                     `;
