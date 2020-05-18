@@ -206,6 +206,11 @@ document.addEventListener('DOMContentLoaded', function () {
                         <input type="phone" class="form-control" id="numberPhone">
                     </div>
                     `;
+
+                    const numberPhone = document.getElementById('numberPhone');
+                    numberPhone.addEventListener('input', (event) => {
+                        event.target.value = event.target.value.replace(/[^0-9+-]/, '');
+                    });
                     break;
                 case (numberQuestion === questions.length + 1):
                     formAnswers.textContent = 'Спасибо за пройденный тест!';
