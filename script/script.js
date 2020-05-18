@@ -185,16 +185,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     nextButton.classList.remove('d-none');
                     sendButton.classList.add('d-none');
                     prevButton.classList.add('d-none');
-                    console.log('numberQuestion в конце 2 кейса:' + numberQuestion);
                     break;
                 case (numberQuestion >= 0 && numberQuestion <= questions.length - 1):
-                    console.log('numberQuestion в начале 1 кейса:' + numberQuestion);
                     questionTitle.textContent = `${questions[indexQuestion].question}`;
                     renderAnswers(indexQuestion);
                     nextButton.classList.remove('d-none');
                     prevButton.classList.remove('d-none');
                     sendButton.classList.add('d-none');
-                    console.log('numberQuestion в конце 1 кейса:' + numberQuestion);
                     break;
                 case (numberQuestion === questions.length):
                     nextButton.classList.add('d-none');
@@ -210,8 +207,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 case (numberQuestion === questions.length + 1):
                     formAnswers.textContent = 'Спасибо за пройденный тест!';
 
+                    for (let key in obj) {
+                        let newObj = {};
+                        newObj[key] = obj[key];
+                        finalAnswers.push(newObj);
+                    }
 
-
+                    console.log(finalAnswers);
+                    
                     setTimeout(() => {
                         modalBlock.classList.remove('d-block');
                         burgerBtn.classList.remove('active');
@@ -234,8 +237,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
 
-            console.log(obj);
-
             // finalAnswers.push(obj);
         }
 
@@ -254,7 +255,6 @@ document.addEventListener('DOMContentLoaded', function () {
             checkAnswer();
             numberQuestion++;
             renderQuestions(numberQuestion);
-            console.log(finalAnswers); 
         }
     }
 });
