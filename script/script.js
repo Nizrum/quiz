@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const btnOpenModal = document.querySelector('#btnOpenModal');
     const modalBlock = document.querySelector('#modalBlock');
     const modalWrap = document.querySelector('.modal');
+    const modalDialog = document.querySelector('.modal-dialog');
     const closeModal = document.querySelector('#closeModal');
     const questionTitle = document.querySelector('#question');
     const formAnswers = document.querySelector('#formAnswers');
@@ -87,6 +88,21 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     ];
 
+    let count = -100;
+
+    modalDialog.style.top = count + '%';
+
+    const animateModal = () => {
+        modalDialog.style.top = count + '%';
+        count += 3;
+
+        if (count < 0) {
+            requestAnimationFrame(animateModal);
+        } else {
+            count = -100;
+        }
+    }
+
     burgerBtn.style.display = 'none';
     
     let clientWidth = document.documentElement.clientWidth;
@@ -114,6 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     btnOpenModal.addEventListener('click', () => {
+        requestAnimationFrame(animateModal);
         modalBlock.classList.add('d-block');
         playTest();
     });
