@@ -214,6 +214,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     break;
                 case (numberQuestion === questions.length + 1):
                     formAnswers.textContent = 'Спасибо за пройденный тест!';
+                    sendButton.classList.add('d-none');
 
                     for (let key in obj) {
                         let newObj = {};
