@@ -275,7 +275,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     });
                     break;
                 case (numberQuestion === questions.length + 1):
-                    formAnswers.textContent = 'Спасибо за пройденный тест!';
+                    formAnswers.innerHTML = `
+                    Спасибо за пройденный тест!<br>
+                    В ближайшее время с вами свяжется менеджер и мы отправим вам заказ!
+                    `;
                     sendButton.classList.add('d-none');
                     modalFooter.classList.add('d-none');
                     modalHeader.classList.add('d-none');
@@ -289,7 +292,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     setTimeout(() => {
                         modalBlock.classList.remove('d-block');
                         burgerBtn.classList.remove('active');
-                    }, 2000);
+                    }, 5000);
                     break;
             }
         }
