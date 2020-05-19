@@ -16,21 +16,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const questions = [
         {
-            question: "Какого цвета бургер?",
+            question: "Какого цвета бургер вы хотите?",
             answers: [
                 {
                     title: 'Стандарт',
                     url: './image/burger.png'
                 },
                 {
-                    title: 'Черный',
+                    title: 'Чёрный',
                     url: './image/burgerBlack.png'
                 }
             ],
             type: 'radio'
         },
         {
-            question: "Из какого мяса котлета?",
+            question: "Из какого мяса вы хотите котлету?",
             answers: [
                 {
                     title: 'Курица',
