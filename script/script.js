@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function () {
         setTimeout(() => {
               firebase.database().ref().child('questions').once('value')
                 .then(snap => playTest(snap.val()));
-        }, 1000);
+        }, 800);
     }
 
     let count = -100;

@@ -26,6 +26,10 @@
                     "url": "./image/beefMeat.png"
                 },
                 {
+                    "title": "Баранина",
+                    "url": "./image/sheep.png"
+                },
+                {
                     "title": "Свинина",
                     "url": "./image/porkMeat.png"
                 }
@@ -46,6 +50,14 @@
                 {
                     "title": "Салат",
                     "url": "./image/salad.png"
+                },
+                {
+                    "title": "Омлет",
+                    "url": "./image/omlet.png"
+                },
+                {
+                    "title": "Сыр",
+                    "url": "./image/cheese.png"
                 },
                 {
                     "title": "Лук",
